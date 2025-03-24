@@ -1,0 +1,36 @@
+steps:
+  - type: TextGenerator
+    name: LocalModelGenerator
+    config:
+      # device: "cuda"
+      # batch_size: 1000000
+      # model_path: "Qwen/Qwen2.5-7B-Instruct"
+      n: 1
+      best_of: null
+      presence_penalty: 0
+      frequency_penalty: 0
+      repetition_penalty: 1
+      temperature: 0.7
+      top_p: 0.9
+      top_k: -1
+      min_p: 0
+      seed: null
+      stop: null
+      stop_token_ids: null
+      ignore_eos: False
+      max_tokens: 4096
+      min_tokens: 0
+      logprobs: null
+      prompt_logprobs: null
+      detokenize: True
+      skip_special_tokens: True
+      spaces_between_special_tokens: True
+      logits_processors: null
+      include_stop_str_in_output: False
+      truncate_prompt_tokens: null
+#      logit_bias: null # Dict[int,float]
+      allowed_token_ids: null  # List[int]
+      download_dir: "ckpr/models/"
+      prompt: "You are a helpful assistant" #system prompt for the model
+
+  
