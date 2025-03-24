@@ -129,9 +129,9 @@ class PipelinePostprocessStep(PipelineStep):
         """
         Load data, reformat it based on keys, and record the new data.
         """
-        final_save_folder = self.data_manager.save_final_results()
-        final_save_path = os.path.join(final_save_folder, 'result.jsonl')
-        data = load_from_data_path(final_save_path)
+        cur_save_folder = self.data_manager.save_final_results()
+        cur_save_path = os.path.join(cur_save_folder, 'result.jsonl')
+        data = load_from_data_path(cur_save_path)
         text_key = self.config.get('text_key', None)
         image_key = self.config.get('image_key', None)
         video_key = self.config.get('video_key', None)
@@ -143,7 +143,8 @@ class PipelinePostprocessStep(PipelineStep):
 
         recorder = Recorder(
             data_manager=self.data_manager,
-            step_name=final_save_folder,
+            step_name=cur_save_folder,
+            save_final=True,
         )
         recorder.record(new_data)
         return recorder.dump()
